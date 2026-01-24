@@ -1,9 +1,36 @@
 
-import React from 'react';
-import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, ExternalLink } from 'lucide-react';
+import React, { useState } from 'react';
+import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, ExternalLink, MessageCircle } from 'lucide-react';
 import Logo from './Logo';
 
 const Contact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    service: 'Vendas Técnicas',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const text = `Olá! Gostaria de um orçamento.
+*Nome:* ${formData.name}
+*E-mail:* ${formData.email}
+*Serviço:* ${formData.service}
+*Mensagem:* ${formData.message}`;
+
+    const encodedText = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/5531983903283?text=${encodedText}`;
+    
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <footer id="contato" className="bg-gama-navy pt-24 pb-12 text-white overflow-hidden relative">
       {/* Decorative logo background */}
@@ -68,12 +95,16 @@ const Contact: React.FC = () => {
 
           <div className="bg-white p-10 sm:p-14 rounded-[3.5rem] shadow-2xl">
             <h4 className="text-3xl font-black text-gama-navy mb-8">Solicite seu <span className="text-gama-orange">Orçamento</span></h4>
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 px-1">Seu Nome</label>
                   <input 
+                    name="name"
                     type="text" 
+                    required
+                    value={formData.name}
+                    onChange={handleInputChange}
                     placeholder="Ex: João Silva" 
                     className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-gama-navy font-bold focus:outline-none focus:border-gama-orange transition-all"
                   />
@@ -81,7 +112,11 @@ const Contact: React.FC = () => {
                 <div className="space-y-2">
                   <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 px-1">E-mail</label>
                   <input 
+                    name="email"
                     type="email" 
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
                     placeholder="joao@email.com" 
                     className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-gama-navy font-bold focus:outline-none focus:border-gama-orange transition-all"
                   />
@@ -89,7 +124,12 @@ const Contact: React.FC = () => {
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 px-1">Serviço de Interesse</label>
-                <select className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-gama-navy font-bold focus:outline-none focus:border-gama-orange transition-all appearance-none cursor-pointer">
+                <select 
+                  name="service"
+                  value={formData.service}
+                  onChange={handleInputChange}
+                  className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-gama-navy font-bold focus:outline-none focus:border-gama-orange transition-all appearance-none cursor-pointer"
+                >
                   <option>Vendas Técnicas</option>
                   <option>Pintura Profissional</option>
                   <option>Transporte Executivo</option>
@@ -99,14 +139,21 @@ const Contact: React.FC = () => {
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 px-1">Sua Mensagem</label>
                 <textarea 
+                  name="message"
+                  required
+                  value={formData.message}
+                  onChange={handleInputChange}
                   placeholder="Descreva seu projeto ou necessidade..." 
                   rows={4}
                   className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-gama-navy font-bold focus:outline-none focus:border-gama-orange transition-all"
                 ></textarea>
               </div>
-              <button className="w-full orange-gradient text-white font-black py-5 rounded-2xl hover:shadow-2xl hover:shadow-orange-200 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
-                ENVIAR AGORA
-                <ExternalLink size={20} />
+              <button 
+                type="submit"
+                className="w-full orange-gradient text-white font-black py-5 rounded-2xl hover:shadow-2xl hover:shadow-orange-200 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3"
+              >
+                ENVIAR VIA WHATSAPP
+                <MessageCircle size={20} />
               </button>
             </form>
           </div>

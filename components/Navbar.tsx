@@ -27,17 +27,17 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-5 group cursor-pointer">
-            {/* Logo Premium Redesenhado */}
+            {/* Logo Fiel à Imagem Enviada */}
             <div className="relative">
               <div className="absolute inset-0 bg-gama-orange/10 rounded-full blur-lg scale-0 group-hover:scale-150 transition-transform duration-500"></div>
-              <Logo className="w-14 h-14 flex-shrink-0 relative z-10 transition-all duration-500 group-hover:rotate-[10deg]" />
+              <Logo className="w-16 h-16 flex-shrink-0 relative z-10 transition-all duration-500" />
             </div>
             
             <div className="flex flex-col -space-y-1">
               <span className={`text-2xl font-display font-black tracking-tight transition-colors duration-300 ${isScrolled ? 'text-gama-navy' : 'text-gama-navy'}`}>
-                SERVIÇOS <span className="text-gama-orange">GAMA</span>
+                Serviços <span className="text-gama-orange">Gama</span>
               </span>
-              <span className="text-[9px] font-black uppercase tracking-[0.3em] text-gama-blue opacity-70">Excelência em Vendas e Serviços</span>
+              <span className="text-[10px] font-bold text-gama-navy opacity-80">Vendas Técnicas e Serviços</span>
             </div>
           </div>
 

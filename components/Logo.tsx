@@ -20,68 +20,67 @@ const Logo: React.FC<LogoProps> = ({ className = "w-12 h-12" }) => {
       ) : (
         <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full filter drop-shadow-xl">
           <defs>
-            <linearGradient id="gamaPrimary" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#0D2C54" />
-              <stop offset="100%" stopColor="#1E4B8A" />
-            </linearGradient>
-            <linearGradient id="gamaAccent" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#F39C12" />
-              <stop offset="100%" stopColor="#E67E22" />
-            </linearGradient>
-            <linearGradient id="gamaLight" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id="barGradient" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#3498DB" />
               <stop offset="100%" stopColor="#2980B9" />
             </linearGradient>
-            
-            {/* Glossy Effect */}
-            <filter id="innerGlow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur in="SourceAlpha" stdDeviation="8" />
-              <feOffset dx="0" dy="4" result="offsetblur" />
-              <feComponentTransfer>
-                <feFuncA type="linear" slope="0.2" />
-              </feComponentTransfer>
-              <feMerge>
-                <feMergeNode />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
+            <linearGradient id="orangeRing" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#E67E22" />
+              <stop offset="100%" stopColor="#F39C12" />
+            </linearGradient>
           </defs>
 
-          {/* Background Shield - Geometria Hexagonal Suave */}
-          <path d="M256 40L440 140V372L256 472L72 372V140L256 40Z" fill="white" className="opacity-10" />
+          {/* Círculo de Fundo (Off-white) */}
+          <circle cx="256" cy="256" r="240" fill="#FDFDFD" />
           
-          {/* O NOVO "G" MONOGRAMA - Três pilares integrados */}
-          <g filter="url(#innerGlow)">
-            {/* Segmento Superior (Pilar Técnico) */}
-            <path 
-              d="M160 140 H 350 C 380 140, 400 160, 400 190 V 220 H 320 V 190 H 160 V 320 H 320 V 280 H 400 V 322 C 400 380, 350 420, 256 420 C 120 420, 80 340, 80 256 C 80 150, 150 140, 160 140Z" 
-              fill="url(#gamaPrimary)" 
-              className="transition-all duration-500 group-hover:opacity-90"
-            />
-            
-            {/* Elemento de Conexão Central (Destaque Orange) */}
-            <path 
-              d="M320 220 H 420 V 280 H 320 V 220Z" 
-              fill="url(#gamaAccent)" 
-              className="transition-all duration-300 group-hover:translate-x-2"
-            />
-            
-            {/* Detalhe de Precisão (Pilar de Serviços) */}
-            <path 
-              d="M120 230 L 160 210 V 302 L 120 282 V 230Z" 
-              fill="url(#gamaLight)" 
-              opacity="0.8"
-            />
+          {/* Aro Externo Azul Marinho */}
+          <circle cx="256" cy="256" r="230" stroke="#0D2C54" strokeWidth="14" />
+
+          {/* Arco Laranja de Fundo (Dinamismo) */}
+          <path 
+            d="M80 256 A 176 176 0 1 1 432 256" 
+            stroke="url(#orangeRing)" 
+            strokeWidth="40" 
+            strokeLinecap="round" 
+            fill="none" 
+            opacity="0.8"
+          />
+
+          {/* Gráfico de Barras de Crescimento - Ligeiramente deslocado para a direita */}
+          <g transform="translate(180, 420)">
+            <rect x="0" y="-140" width="50" height="140" rx="10" fill="url(#barGradient)" className="transition-all duration-500 group-hover:height-[160px] group-hover:y-[-160px]" />
+            <rect x="65" y="-220" width="50" height="220" rx="10" fill="url(#barGradient)" className="transition-all duration-700 group-hover:height-[240px] group-hover:y-[-240px]" />
+            <rect x="130" y="-300" width="50" height="300" rx="10" fill="url(#barGradient)" className="transition-all duration-1000 group-hover:height-[340px] group-hover:y-[-340px]" />
           </g>
 
-          {/* Dots Decorativos - Representando Redes e Pontos de Atendimento */}
-          <circle cx="256" cy="40" r="12" fill="url(#gamaAccent)" />
-          <circle cx="440" cy="140" r="8" fill="url(#gamaLight)" />
-          <circle cx="440" cy="372" r="8" fill="url(#gamaPrimary)" />
-          <circle cx="72" cy="140" r="8" fill="url(#gamaLight)" />
+          {/* Engrenagem Técnica - Agora "encaixada" na primeira barra */}
+          <g transform="translate(145, 275) scale(1.15)" className="transition-transform duration-1000 group-hover:rotate-45">
+            <circle r="48" fill="#0D2C54" />
+            {[0, 45, 90, 135, 180, 225, 270, 315].map(deg => (
+              <rect key={deg} x="-14" y="-65" width="28" height="28" rx="5" fill="#0D2C54" transform={`rotate(${deg})`} />
+            ))}
+            <circle r="22" fill="#FDFDFD" />
+          </g>
+
+          {/* Seta de Progresso - Seguindo o gráfico */}
+          <path 
+            d="M310 210 L 410 110 M 410 110 H 350 M 410 110 V 170" 
+            stroke="#0D2C54" 
+            strokeWidth="28" 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            className="transition-all duration-500 group-hover:translate-x-2 group-hover:-translate-y-2"
+          />
+
+          {/* Detalhes de Conexão entre Engrenagem e Gráfico (Sombras/Interseção) */}
+          <rect x="180" y="270" width="10" height="10" fill="#0D2C54" opacity="0.3" className="rounded-full" />
           
-          {/* Linha de Base - Fundamento */}
-          <rect x="180" y="450" width="152" height="6" rx="3" fill="url(#gamaPrimary)" opacity="0.2" />
+          {/* Linhas Laterais Decorativas (Direita) */}
+          <g opacity="0.4">
+            <rect x="440" y="240" width="40" height="10" rx="5" fill="#E67E22" />
+            <rect x="445" y="265" width="50" height="10" rx="5" fill="#0D2C54" />
+            <rect x="440" y="290" width="40" height="10" rx="5" fill="#E67E22" />
+          </g>
         </svg>
       )}
     </div>
