@@ -14,19 +14,18 @@ const App: React.FC = () => {
       <main>
         <Hero />
         
-        {/* Why Choose Us Ribbon - Themed after the logo stripes */}
+        {/* Faixa de Diferenciais inspirada nos traços da logo */}
         <section id="diferenciais" className="bg-white py-14 relative overflow-hidden">
-          {/* Accent stripes in the background */}
           <div className="absolute top-0 left-0 w-full h-1 bg-gama-orange"></div>
           <div className="absolute top-2 left-0 w-full h-0.5 bg-gama-blue opacity-30"></div>
           
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 md:grid-cols-5 gap-10 items-center justify-items-center">
                {[
-                 { label: "Qualidade", value: "Premium" },
-                 { label: "Profissionais", value: "Capacitados" },
-                 { label: "Atendimento", value: "Personalizado" },
-                 { label: "Compromisso", value: "Prazos" },
+                 { label: "Qualidade", value: "Superior" },
+                 { label: "Profissionais", value: "Técnicos" },
+                 { label: "Atendimento", value: "Regional" },
+                 { label: "Compromisso", value: "Ético" },
                  { label: "Preço", value: "Justo" }
                ].map((item, idx) => (
                  <div key={idx} className="flex flex-col items-center group cursor-default">
@@ -46,18 +45,18 @@ const App: React.FC = () => {
         <Contact />
       </main>
 
-      {/* AI Floating Assistant */}
+      {/* Assistente IA com Gemini */}
       <GeminiAssistant />
 
-      {/* CTA Bottom Banner for Mobile */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur-xl border-t border-slate-100 z-40">
+      {/* Barra Flutuante Mobile */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 p-4 bg-white/95 backdrop-blur-xl border-t border-slate-100 z-40">
         <a 
           href="https://wa.me/5531983903283" 
           target="_blank" 
           rel="noopener noreferrer"
           className="w-full orange-gradient text-white font-black py-4 rounded-2xl flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(230,126,34,0.3)]"
         >
-          <span className="text-sm uppercase tracking-widest">WhatsApp Comercial</span>
+          <span className="text-sm uppercase tracking-widest">Falar no WhatsApp</span>
         </a>
       </div>
     </div>

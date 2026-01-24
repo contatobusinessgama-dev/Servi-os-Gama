@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, ExternalLink } from 'lucide-react';
+import Logo from './Logo';
 
 const Contact: React.FC = () => {
   return (
@@ -113,7 +114,7 @@ const Contact: React.FC = () => {
 
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-3">
-             <div className="w-10 h-10 rounded-full border-2 border-gama-orange bg-white flex items-center justify-center font-black text-gama-navy text-[10px]">G</div>
+             <Logo className="w-12 h-12" />
              <div className="flex flex-col -space-y-1">
                <span className="font-black text-lg">Serviços <span className="text-gama-orange">Gama</span></span>
                <span className="text-[8px] font-bold uppercase tracking-[0.3em] text-blue-200">Vendas Técnicas e Serviços</span>
