@@ -1,0 +1,7 @@
+{
+  "name": "Serviços Gama - Qualidade e Competência",
+  "description": "Site institucional para Serviços Gama, oferecendo soluções técnicas, pintura, suporte a empresas e transporte executivo com foco em excelência.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
