@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Star, ChevronLeft, ChevronRight, Quote, CheckCircle2 } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 interface Testimonial {
   id: number;
@@ -94,8 +95,8 @@ const Testimonials: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Cabeçalho */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Cabeçalho com ScrollReveal */}
+        <ScrollReveal animation="slide-up" duration="duration-1000" className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-sm font-black text-gama-orange uppercase tracking-[0.3em] mb-4 inline-block">
             Depoimentos de Sucesso
           </span>
@@ -105,10 +106,10 @@ const Testimonials: React.FC = () => {
           <p className="text-slate-500 font-medium text-base">
             Garantimos a plena satisfação de nossos clientes corporativos e residenciais através de transparência, compromisso ético e alto padrão operacional.
           </p>
-        </div>
+        </ScrollReveal>
 
-        {/* Carrossel Principal */}
-        <div className="max-w-4xl mx-auto relative px-4">
+        {/* Carrossel Principal com ScrollReveal */}
+        <ScrollReveal animation="slide-up" duration="duration-1000" className="max-w-4xl mx-auto relative px-4">
           
           {/* Caixa de Depoimento Ativo */}
           <div className="bg-white rounded-[3rem] p-8 md:p-14 shadow-[0_30px_70px_-20px_rgba(13,44,84,0.08)] border border-slate-100 relative min-h-[380px] md:min-h-[300px] flex flex-col justify-between transition-all duration-300">
@@ -178,7 +179,7 @@ const Testimonials: React.FC = () => {
             </button>
           </div>
 
-        </div>
+        </ScrollReveal>
 
         {/* Indicadores de Paginação (Dots) */}
         <div className="flex justify-center gap-2.5 mt-10">
@@ -196,24 +197,26 @@ const Testimonials: React.FC = () => {
           ))}
         </div>
 
-        {/* Estatísticas de Confiança (Social Proof Stats Panel) */}
-        <div className="mt-20 max-w-5xl mx-auto bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-xl grid grid-cols-2 md:grid-cols-4 gap-8 divide-y-2 md:divide-y-0 md:divide-x-2 divide-slate-100">
-          {[
-            { value: "98%", label: "De Satisfação", highlight: "gama-orange" },
-            { value: "1.200+", label: "Atendimentos", highlight: "gama-navy" },
-            { value: "100%", label: "Pontualidade", highlight: "gama-blue" },
-            { value: "24/7", label: "Suporte Técnico", highlight: "gama-orange" }
-          ].map((stat, idx) => (
-            <div key={idx} className="flex flex-col items-center justify-center text-center p-4 md:p-0">
-              <span className={`text-4xl md:text-5xl font-display font-black tracking-tighter text-${stat.highlight} mb-2`}>
-                {stat.value}
-              </span>
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
-                {stat.label}
-              </span>
-            </div>
-          ))}
-        </div>
+        {/* Estatísticas de Confiança (Social Proof Stats Panel) com ScrollReveal */}
+        <ScrollReveal animation="slide-up" duration="duration-1000" delay="delay-200">
+          <div className="mt-20 max-w-5xl mx-auto bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-xl grid grid-cols-2 md:grid-cols-4 gap-8 divide-y-2 md:divide-y-0 md:divide-x-2 divide-slate-100">
+            {[
+              { value: "98%", label: "De Satisfação", highlight: "gama-orange" },
+              { value: "1.200+", label: "Atendimentos", highlight: "gama-navy" },
+              { value: "100%", label: "Pontualidade", highlight: "gama-blue" },
+              { value: "24/7", label: "Suporte Técnico", highlight: "gama-orange" }
+            ].map((stat, idx) => (
+              <div key={idx} className="flex flex-col items-center justify-center text-center p-4 md:p-0">
+                <span className={`text-4xl md:text-5xl font-display font-black tracking-tighter text-${stat.highlight} mb-2`}>
+                  {stat.value}
+                </span>
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
 
       </div>
     </section>

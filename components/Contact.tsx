@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, ExternalLink, MessageCircle } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -37,135 +38,143 @@ const Contact: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 mb-20">
-          <div>
-            <h2 className="text-sm font-black text-gama-orange uppercase tracking-[0.3em] mb-6">Fale Conosco</h2>
-            <h3 className="text-5xl font-display font-black mb-10 leading-tight">Pronto para <br /> <span className="text-gama-blue italic underline underline-offset-8 decoration-gama-orange/30">transformar</span> seu projeto?</h3>
-            
-            <div className="space-y-10">
-              <div className="flex items-start gap-6 group">
-                <div className="w-14 h-14 bg-white/10 text-gama-orange rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-gama-orange group-hover:text-white transition-all shadow-xl">
-                  <Phone size={28} />
+          
+          {/* Coluna Fale Conosco com ScrollReveal */}
+          <ScrollReveal animation="slide-up" duration="duration-1000">
+            <div>
+              <h2 className="text-sm font-black text-gama-orange uppercase tracking-[0.3em] mb-6">Fale Conosco</h2>
+              <h3 className="text-5xl font-display font-black mb-10 leading-tight">Pronto para <br /> <span className="text-gama-blue italic underline underline-offset-8 decoration-gama-orange/30">transformar</span> seu projeto?</h3>
+              
+              <div className="space-y-10">
+                <div className="flex items-start gap-6 group">
+                  <div className="w-14 h-14 bg-white/10 text-gama-orange rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-gama-orange group-hover:text-white transition-all shadow-xl">
+                    <Phone size={28} />
+                  </div>
+                  <div>
+                    <h4 className="font-black text-xs uppercase tracking-[0.2em] text-blue-200 mb-1">WhatsApp Comercial</h4>
+                    <p className="text-2xl font-black">(31) 98427-9865</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-black text-xs uppercase tracking-[0.2em] text-blue-200 mb-1">WhatsApp Comercial</h4>
-                  <p className="text-2xl font-black">(31) 98427-9865</p>
-                </div>
-              </div>
 
-              <a href="https://www.instagram.com/servicos.gama/" target="_blank" rel="noopener noreferrer" className="flex items-start gap-6 group hover:translate-x-1 transition-transform">
-                <div className="w-14 h-14 bg-white/10 text-gama-orange rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-gama-orange group-hover:text-white transition-all shadow-xl">
-                  <Instagram size={28} />
-                </div>
-                <div>
-                  <h4 className="font-black text-xs uppercase tracking-[0.2em] text-blue-200 mb-1">Instagram Oficial</h4>
-                  <p className="text-xl font-bold flex items-center gap-2">@servicos.gama <ExternalLink size={16} className="opacity-50" /></p>
-                </div>
-              </a>
-
-              <div className="flex items-start gap-6 group">
-                <div className="w-14 h-14 bg-white/10 text-gama-orange rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-gama-orange group-hover:text-white transition-all shadow-xl">
-                  <Mail size={28} />
-                </div>
-                <div>
-                  <h4 className="font-black text-xs uppercase tracking-[0.2em] text-blue-200 mb-1">E-mail Corporativo</h4>
-                  <p className="text-xl font-bold">contato@servicosgama.com.br</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-6 group">
-                <div className="w-14 h-14 bg-white/10 text-gama-orange rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-gama-orange group-hover:text-white transition-all shadow-xl">
-                  <MapPin size={28} />
-                </div>
-                <div>
-                  <h4 className="font-black text-xs uppercase tracking-[0.2em] text-blue-200 mb-1">Área de Atuação</h4>
-                  <p className="text-xl font-bold">Belo Horizonte e Região Metropolitana</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex gap-5 mt-16">
-              {[
-                { icon: <Instagram size={22} />, link: "https://www.instagram.com/servicos.gama/" },
-                { icon: <Facebook size={22} />, link: "#" },
-                { icon: <Linkedin size={22} />, link: "#" }
-              ].map((social, i) => (
-                <a 
-                  key={i}
-                  href={social.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-gama-orange transition-all hover:-translate-y-1 shadow-lg"
-                >
-                  {social.icon}
+                <a href="https://www.instagram.com/servicos.gama/" target="_blank" rel="noopener noreferrer" className="flex items-start gap-6 group hover:translate-x-1 transition-transform">
+                  <div className="w-14 h-14 bg-white/10 text-gama-orange rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-gama-orange group-hover:text-white transition-all shadow-xl">
+                    <Instagram size={28} />
+                  </div>
+                  <div>
+                    <h4 className="font-black text-xs uppercase tracking-[0.2em] text-blue-200 mb-1">Instagram Oficial</h4>
+                    <p className="text-xl font-bold flex items-center gap-2">@servicos.gama <ExternalLink size={16} className="opacity-50" /></p>
+                  </div>
                 </a>
-              ))}
-            </div>
-          </div>
 
-          <div className="bg-white p-10 sm:p-14 rounded-[3.5rem] shadow-2xl">
-            <h4 className="text-3xl font-black text-gama-navy mb-8">Solicite seu <span className="text-gama-orange">Orçamento</span></h4>
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 px-1">Seu Nome</label>
-                  <input 
-                    name="name"
-                    type="text" 
-                    required
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Ex: João Silva" 
-                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-gama-navy font-bold focus:outline-none focus:border-gama-orange transition-all"
-                  />
+                <div className="flex items-start gap-6 group">
+                  <div className="w-14 h-14 bg-white/10 text-gama-orange rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-gama-orange group-hover:text-white transition-all shadow-xl">
+                    <Mail size={28} />
+                  </div>
+                  <div>
+                    <h4 className="font-black text-xs uppercase tracking-[0.2em] text-blue-200 mb-1">E-mail Corporativo</h4>
+                    <p className="text-xl font-bold">contato@servicosgama.com.br</p>
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 px-1">E-mail</label>
-                  <input 
-                    name="email"
-                    type="email" 
-                    required
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="joao@email.com" 
-                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-gama-navy font-bold focus:outline-none focus:border-gama-orange transition-all"
-                  />
+
+                <div className="flex items-start gap-6 group">
+                  <div className="w-14 h-14 bg-white/10 text-gama-orange rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-gama-orange group-hover:text-white transition-all shadow-xl">
+                    <MapPin size={28} />
+                  </div>
+                  <div>
+                    <h4 className="font-black text-xs uppercase tracking-[0.2em] text-blue-200 mb-1">Área de Atuação</h4>
+                    <p className="text-xl font-bold">Belo Horizonte e Região Metropolitana</p>
+                  </div>
                 </div>
               </div>
-              <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 px-1">Serviço de Interesse</label>
-                <select 
-                  name="service"
-                  value={formData.service}
-                  onChange={handleInputChange}
-                  className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-gama-navy font-bold focus:outline-none focus:border-gama-orange transition-all appearance-none cursor-pointer"
+
+              <div className="flex gap-5 mt-16">
+                {[
+                  { icon: <Instagram size={22} />, link: "https://www.instagram.com/servicos.gama/" },
+                  { icon: <Facebook size={22} />, link: "#" },
+                  { icon: <Linkedin size={22} />, link: "#" }
+                ].map((social, i) => (
+                  <a 
+                    key={i}
+                    href={social.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-white hover:bg-gama-orange transition-all hover:-translate-y-1 shadow-lg"
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Coluna Orçamento com ScrollReveal */}
+          <ScrollReveal animation="slide-up" duration="duration-1000" delay="delay-200">
+            <div className="bg-white p-10 sm:p-14 rounded-[3.5rem] shadow-2xl">
+              <h4 className="text-3xl font-black text-gama-navy mb-8">Solicite seu <span className="text-gama-orange">Orçamento</span></h4>
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 px-1">Seu Nome</label>
+                    <input 
+                      name="name"
+                      type="text" 
+                      required
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Ex: João Silva" 
+                      className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-gama-navy font-bold focus:outline-none focus:border-gama-orange transition-all"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 px-1">E-mail</label>
+                    <input 
+                      name="email"
+                      type="email" 
+                      required
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="joao@email.com" 
+                      className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-gama-navy font-bold focus:outline-none focus:border-gama-orange transition-all"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 px-1">Serviço de Interesse</label>
+                  <select 
+                    name="service"
+                    value={formData.service}
+                    onChange={handleInputChange}
+                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-gama-navy font-bold focus:outline-none focus:border-gama-orange transition-all appearance-none cursor-pointer"
+                  >
+                    <option>Venda Técnicas</option>
+                    <option>Pintura Profissional</option>
+                    <option>Transporte Executivo</option>
+                    <option>Manutenção MEI</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 px-1">Sua Mensagem</label>
+                  <textarea 
+                    name="message"
+                    required
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Descreva seu projeto ou necessidade..." 
+                    rows={4}
+                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-gama-navy font-bold focus:outline-none focus:border-gama-orange transition-all"
+                  ></textarea>
+                </div>
+                <button 
+                  type="submit"
+                  className="w-full orange-gradient text-white font-black py-5 rounded-2xl hover:shadow-2xl hover:shadow-orange-200 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3"
                 >
-                  <option>Venda Técnicas</option>
-                  <option>Pintura Profissional</option>
-                  <option>Transporte Executivo</option>
-                  <option>Manutenção MEI</option>
-                </select>
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 px-1">Sua Mensagem</label>
-                <textarea 
-                  name="message"
-                  required
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  placeholder="Descreva seu projeto ou necessidade..." 
-                  rows={4}
-                  className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-gama-navy font-bold focus:outline-none focus:border-gama-orange transition-all"
-                ></textarea>
-              </div>
-              <button 
-                type="submit"
-                className="w-full orange-gradient text-white font-black py-5 rounded-2xl hover:shadow-2xl hover:shadow-orange-200 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3"
-              >
-                ENVIAR VIA WHATSAPP
-                <MessageCircle size={20} />
-              </button>
-            </form>
-          </div>
+                  ENVIAR VIA WHATSAPP
+                  <MessageCircle size={20} />
+                </button>
+              </form>
+            </div>
+          </ScrollReveal>
+
         </div>
 
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
