@@ -7,7 +7,7 @@ const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    service: 'Vendas Técnicas',
+    service: 'Venda Técnicas',
     message: ''
   });
 
@@ -130,7 +130,7 @@ const Contact: React.FC = () => {
                   onChange={handleInputChange}
                   className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-gama-navy font-bold focus:outline-none focus:border-gama-orange transition-all appearance-none cursor-pointer"
                 >
-                  <option>Vendas Técnicas</option>
+                  <option>Venda Técnicas</option>
                   <option>Pintura Profissional</option>
                   <option>Transporte Executivo</option>
                   <option>Manutenção MEI</option>
@@ -164,7 +164,7 @@ const Contact: React.FC = () => {
              <Logo className="w-12 h-12" />
              <div className="flex flex-col -space-y-1">
                <span className="font-black text-lg">Serviços <span className="text-gama-orange">Gama</span></span>
-               <span className="text-[8px] font-bold uppercase tracking-[0.3em] text-blue-200">Vendas Técnicas e Serviços</span>
+               <span className="text-[8px] font-bold uppercase tracking-[0.3em] text-blue-200">Venda Técnicas e Serviços</span>
              </div>
           </div>
           <p className="text-blue-100/40 text-xs font-bold uppercase tracking-widest">

@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
 import Contact from './components/Contact';
+import GeminiAssistant from './components/GeminiAssistant';
 
 const App: React.FC = () => {
   return (
@@ -43,6 +44,9 @@ const App: React.FC = () => {
         <Services />
         <Contact />
       </main>
+
+      {/* Assistente de Inteligência Artificial */}
+      <GeminiAssistant />
 
       {/* Barra Flutuante Mobile */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 p-4 bg-white/95 backdrop-blur-xl border-t border-slate-100 z-40">

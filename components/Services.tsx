@@ -16,6 +16,7 @@ const Services: React.FC = () => {
       title: 'Vendas Técnicas',
       description: 'Consultoria e vendas de produtos técnicos com foco no melhor custo-benefício para sua obra ou manutenção.',
       icon: <Wrench className="w-8 h-8" />,
+      image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop",
       features: ['Orientação Técnica', 'Projetos sob medida', 'Eficiência Operacional'],
       color: 'orange'
     },
@@ -24,6 +25,7 @@ const Services: React.FC = () => {
       title: 'Pintura & Textura',
       description: 'Acabamento de alto padrão para ambientes exigentes. Residencial, comercial e industrial.',
       icon: <Paintbrush className="w-8 h-8" />,
+      image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?q=80&w=600&auto=format&fit=crop",
       features: ['Texturas Decorativas', 'Pintura Predial', 'Materiais Premium'],
       color: 'navy'
     },
@@ -32,6 +34,7 @@ const Services: React.FC = () => {
       title: 'Suporte Empresarial',
       description: 'Apoio técnico e operacional para MEIs e empresas que buscam terceirização de confiança.',
       icon: <Briefcase className="w-8 h-8" />,
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop",
       features: ['Manutenção de Rotina', 'Apoio MEI', 'Consultoria Técnica'],
       color: 'blue'
     },
@@ -48,19 +51,28 @@ const Services: React.FC = () => {
 
         <div className="grid lg:grid-cols-3 gap-10 mb-20">
           {services.map((service) => (
-            <div key={service.id} className="bg-white p-12 rounded-[3rem] shadow-[0_20px_60px_-15px_rgba(13,44,84,0.05)] border border-slate-100 hover:shadow-2xl transition-all group relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-slate-50 rounded-bl-[4rem] group-hover:bg-gama-beige/30 transition-colors -z-0"></div>
-              
-              <div className="relative z-10">
-                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-8 bg-gama-navy text-white group-hover:scale-110 group-hover:bg-gama-orange transition-all duration-500`}>
+            <div key={service.id} className="bg-white rounded-[3rem] shadow-[0_20px_60px_-15px_rgba(13,44,84,0.05)] border border-slate-100 hover:shadow-2xl transition-all group relative overflow-hidden flex flex-col">
+              {/* Imagem de Capa do Serviço */}
+              <div className="h-52 w-full overflow-hidden relative">
+                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent z-10"></div>
+                <img 
+                  src={service.image} 
+                  alt={service.title} 
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className={`absolute top-6 left-6 z-20 w-12 h-12 rounded-xl flex items-center justify-center bg-gama-navy text-white group-hover:scale-110 group-hover:bg-gama-orange transition-all duration-500 shadow-md`}>
                   {service.icon}
                 </div>
+              </div>
+
+              <div className="p-10 pt-4 flex-grow relative z-10">
                 <h4 className="text-2xl font-black text-gama-navy mb-4">{service.title}</h4>
-                <p className="text-slate-500 mb-8 leading-relaxed font-medium">{service.description}</p>
+                <p className="text-slate-500 mb-8 leading-relaxed font-medium text-sm">{service.description}</p>
                 <ul className="space-y-4">
                   {service.features.map((feature, i) => (
                     <li key={i} className="flex items-center gap-3 text-sm text-gama-navy font-bold">
-                      <CheckCircle2 className="text-gama-orange w-5 h-5" />
+                      <CheckCircle2 className="text-gama-orange w-5 h-5 flex-shrink-0" />
                       {feature}
                     </li>
                   ))}

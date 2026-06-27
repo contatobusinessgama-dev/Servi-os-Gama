@@ -5,7 +5,7 @@ import { GoogleGenAI } from "@google/genai";
 export const getGeminiResponse = async (userPrompt: string) => {
   // Always use process.env.API_KEY directly and assume it is configured.
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-  const model = "gemini-3-flash-preview";
+  const model = "gemini-3.5-flash";
 
   const systemInstruction = `
     Você é o Assistente Virtual da 'Serviços Gama'. 

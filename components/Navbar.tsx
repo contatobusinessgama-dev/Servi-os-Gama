@@ -27,7 +27,6 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-5 group cursor-pointer">
-            {/* Logo Fiel à Imagem Enviada */}
             <div className="relative">
               <div className="absolute inset-0 bg-gama-orange/10 rounded-full blur-lg scale-0 group-hover:scale-150 transition-transform duration-500"></div>
               <Logo className="w-16 h-16 flex-shrink-0 relative z-10 transition-all duration-500" />
@@ -37,11 +36,10 @@ const Navbar: React.FC = () => {
               <span className={`text-2xl font-display font-black tracking-tight transition-colors duration-300 ${isScrolled ? 'text-gama-navy' : 'text-gama-navy'}`}>
                 Serviços <span className="text-gama-orange">Gama</span>
               </span>
-              <span className="text-[10px] font-bold text-gama-navy opacity-80">Vendas Técnicas e Serviços</span>
+              <span className="text-[10px] font-bold text-gama-navy opacity-80 uppercase tracking-widest">Venda Técnicas e Serviços</span>
             </div>
           </div>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-12">
             {navItems.map((item) => (
               <a
@@ -61,7 +59,6 @@ const Navbar: React.FC = () => {
             </a>
           </div>
 
-          {/* Mobile Button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -73,7 +70,6 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-white/98 backdrop-blur-2xl border-t border-slate-100 shadow-2xl animate-in fade-in slide-in-from-top-5 duration-300">
           <div className="px-6 pt-6 pb-12 space-y-3">

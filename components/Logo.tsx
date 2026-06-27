@@ -1,88 +1,148 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 
 interface LogoProps {
   className?: string;
 }
 
 const Logo: React.FC<LogoProps> = ({ className = "w-12 h-12" }) => {
-  const [imgError, setImgError] = useState(false);
-
   return (
     <div className={`${className} flex items-center justify-center relative group select-none`}>
-      {!imgError ? (
-        <img 
-          src="logo.png" 
-          alt="Serviços Gama" 
-          className="w-full h-full object-contain transition-all duration-500 group-hover:scale-105"
-          onError={() => setImgError(true)}
+      <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full filter drop-shadow-md">
+        <defs>
+          <linearGradient id="orangeArcGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#D35400" />
+            <stop offset="50%" stopColor="#E67E22" />
+            <stop offset="100%" stopColor="#F39C12" />
+          </linearGradient>
+          
+          <linearGradient id="blueArcGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#1F3A60" />
+            <stop offset="50%" stopColor="#2980B9" />
+            <stop offset="100%" stopColor="#3498DB" />
+          </linearGradient>
+
+          <linearGradient id="barOrangeGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" stopColor="#D35400" />
+            <stop offset="100%" stopColor="#F1C40F" />
+          </linearGradient>
+
+          <linearGradient id="barBlueGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" stopColor="#1B4F72" />
+            <stop offset="100%" stopColor="#5DADE2" />
+          </linearGradient>
+        </defs>
+
+        {/* Arco Laranja Externo (Lado Esquerdo) */}
+        <path 
+          d="M 210 80 A 185 185 0 1 0 345 385" 
+          stroke="url(#orangeArcGrad)" 
+          strokeWidth="32" 
+          fill="none" 
+          strokeLinecap="round" 
         />
-      ) : (
-        <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full filter drop-shadow-xl">
-          <defs>
-            <linearGradient id="barGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#3498DB" />
-              <stop offset="100%" stopColor="#2980B9" />
-            </linearGradient>
-            <linearGradient id="orangeRing" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#E67E22" />
-              <stop offset="100%" stopColor="#F39C12" />
-            </linearGradient>
-          </defs>
 
-          {/* Círculo de Fundo (Off-white) */}
-          <circle cx="256" cy="256" r="240" fill="#FDFDFD" />
+        {/* Arco Azul Externo (Lado Direito) */}
+        <path 
+          d="M 310 405 A 185 185 0 0 0 415 180" 
+          stroke="url(#blueArcGrad)" 
+          strokeWidth="32" 
+          fill="none" 
+          strokeLinecap="round" 
+        />
+
+        {/* Seta de Crescimento Integrada no Arco Azul */}
+        <path 
+          d="M 390 210 L 450 130" 
+          stroke="url(#blueArcGrad)" 
+          strokeWidth="32" 
+          strokeLinecap="round" 
+        />
+        
+        {/* Ponta da Seta */}
+        <path 
+          d="M 475 100 L 385 125 L 410 145 L 415 195 Z" 
+          fill="url(#blueArcGrad)" 
+          stroke="url(#blueArcGrad)" 
+          strokeWidth="4" 
+          strokeLinejoin="round" 
+        />
+
+        {/* Arco Azul Interno Secundário (Trás do Profissional) */}
+        <path 
+          d="M 180 125 A 185 185 0 0 1 405 170" 
+          stroke="url(#blueArcGrad)" 
+          strokeWidth="16" 
+          fill="none" 
+          opacity="0.35" 
+          strokeLinecap="round" 
+        />
+
+        {/* Engrenagem Laranja (Lado Esquerdo) */}
+        <g transform="translate(135, 256) rotate(22.5)">
+          <circle r="36" fill="url(#orangeArcGrad)" />
+          {[0, 45, 90, 135, 180, 225, 270, 315].map(deg => (
+            <rect key={deg} x="-9" y="-46" width="18" height="18" rx="4" fill="url(#orangeArcGrad)" transform={`rotate(${deg})`} />
+          ))}
+          <circle r="16" fill="#FFFFFF" />
+        </g>
+
+        {/* Barras de Gráficos de Crescimento (Esquerda - Laranja/Amarelo) */}
+        <rect x="190" y="325" width="18" height="55" rx="5" fill="url(#barOrangeGrad)" />
+        <rect x="214" y="285" width="18" height="95" rx="5" fill="url(#barOrangeGrad)" />
+
+        {/* Barras de Gráficos de Crescimento (Direita - Azul) */}
+        <rect x="284" y="285" width="18" height="95" rx="5" fill="url(#barBlueGrad)" />
+        <rect x="308" y="245" width="18" height="135" rx="5" fill="url(#barBlueGrad)" />
+        <rect x="332" y="205" width="18" height="175" rx="5" fill="url(#barBlueGrad)" />
+
+        {/* Linhas Decorativas de Movimento (Esquerda) */}
+        <g transform="translate(10, 236)">
+          <rect x="25" y="0" width="35" height="8" rx="4" fill="url(#orangeArcGrad)" />
+          <rect x="10" y="14" width="50" height="8" rx="4" fill="url(#orangeArcGrad)" />
+          <rect x="25" y="28" width="35" height="8" rx="4" fill="url(#orangeArcGrad)" />
+        </g>
+
+        {/* Linhas Decorativas de Movimento (Direita) */}
+        <g transform="translate(415, 236)">
+          <rect x="15" y="0" width="35" height="8" rx="4" fill="url(#blueArcGrad)" />
+          <rect x="15" y="14" width="50" height="8" rx="4" fill="url(#blueArcGrad)" />
+          <rect x="15" y="28" width="35" height="8" rx="4" fill="url(#orangeArcGrad)" />
+        </g>
+
+        {/* Profissional de Terno (Centralizado) */}
+        <g transform="translate(256, 235)">
+          {/* Cabeça */}
+          <circle cx="0" cy="-110" r="30" fill="#0D2C54" />
           
-          {/* Aro Externo Azul Marinho */}
-          <circle cx="256" cy="256" r="230" stroke="#0D2C54" strokeWidth="14" />
-
-          {/* Arco Laranja de Fundo (Dinamismo) */}
-          <path 
-            d="M80 256 A 176 176 0 1 1 432 256" 
-            stroke="url(#orangeRing)" 
-            strokeWidth="40" 
-            strokeLinecap="round" 
-            fill="none" 
-            opacity="0.8"
-          />
-
-          {/* Gráfico de Barras de Crescimento - Ligeiramente deslocado para a direita */}
-          <g transform="translate(180, 420)">
-            <rect x="0" y="-140" width="50" height="140" rx="10" fill="url(#barGradient)" className="transition-all duration-500 group-hover:height-[160px] group-hover:y-[-160px]" />
-            <rect x="65" y="-220" width="50" height="220" rx="10" fill="url(#barGradient)" className="transition-all duration-700 group-hover:height-[240px] group-hover:y-[-240px]" />
-            <rect x="130" y="-300" width="50" height="300" rx="10" fill="url(#barGradient)" className="transition-all duration-1000 group-hover:height-[340px] group-hover:y-[-340px]" />
-          </g>
-
-          {/* Engrenagem Técnica - Agora "encaixada" na primeira barra */}
-          <g transform="translate(145, 275) scale(1.15)" className="transition-transform duration-1000 group-hover:rotate-45">
-            <circle r="48" fill="#0D2C54" />
-            {[0, 45, 90, 135, 180, 225, 270, 315].map(deg => (
-              <rect key={deg} x="-14" y="-65" width="28" height="28" rx="5" fill="#0D2C54" transform={`rotate(${deg})`} />
-            ))}
-            <circle r="22" fill="#FDFDFD" />
-          </g>
-
-          {/* Seta de Progresso - Seguindo o gráfico */}
-          <path 
-            d="M310 210 L 410 110 M 410 110 H 350 M 410 110 V 170" 
-            stroke="#0D2C54" 
-            strokeWidth="28" 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            className="transition-all duration-500 group-hover:translate-x-2 group-hover:-translate-y-2"
-          />
-
-          {/* Detalhes de Conexão entre Engrenagem e Gráfico (Sombras/Interseção) */}
-          <rect x="180" y="270" width="10" height="10" fill="#0D2C54" opacity="0.3" className="rounded-full" />
+          {/* Pescoço */}
+          <path d="M -10 -82 L 10 -82 L 8 -70 L -8 -70 Z" fill="#0D2C54" />
           
-          {/* Linhas Laterais Decorativas (Direita) */}
-          <g opacity="0.4">
-            <rect x="440" y="240" width="40" height="10" rx="5" fill="#E67E22" />
-            <rect x="445" y="265" width="50" height="10" rx="5" fill="#0D2C54" />
-            <rect x="440" y="290" width="40" height="10" rx="5" fill="#E67E22" />
-          </g>
-        </svg>
-      )}
+          {/* Paletó do Terno */}
+          <path d="M -45 -70 C -60 -70, -75 -50, -75 -40 L -65 60 C -65 70, -50 80, -40 80 L -30 160 H 30 L 40 80 C 50 80, 65 70, 65 60 L 75 -40 C 75 -50, 60 -70, 45 -70 Z" fill="#0D2C54" />
+          
+          {/* Camisa Branca (V-Neck) */}
+          <polygon points="0,-70 -18,-70 -11,-35 0,-15 11,-35 18,-70" fill="#FFFFFF" />
+          
+          {/* Gravata Marinho */}
+          <polygon points="0,-50 -5,-40 -3,15 0,32 3,15 5,-40" fill="#0D2C54" />
+          
+          {/* Lapelas do Terno com realce de borda branca fina */}
+          <path d="M -18 -70 L -4 -35 L -30 -45 Z" fill="#0D2C54" stroke="#FFFFFF" strokeWidth="1" />
+          <path d="M 18 -70 L 4 -35 L 30 -45 Z" fill="#0D2C54" stroke="#FFFFFF" strokeWidth="1" />
+          
+          {/* Braços com leve sombreamento de cor */}
+          <path d="M -50 -70 C -62 -65, -72 -45, -72 -25 L -63 40 C -63 48, -53 48, -53 40 L -50 -20 C -50 -28, -45 -48, -45 -48 Z" fill="#0A1E3A" />
+          <path d="M 50 -70 C 62 -65, 72 -45, 72 -25 L 63 40 C 63 48, 53 48, 53 40 L 50 -20 C 50 -28, 45 -48, 45 -48 Z" fill="#0A1E3A" />
+
+          {/* Mãos */}
+          <circle cx="-58" cy="46" r="6" fill="#0D2C54" />
+          <circle cx="58" cy="46" r="6" fill="#0D2C54" />
+
+          {/* Pernas / Calças */}
+          <path d="M -22 155 L -12 250 H -1 L -3 160 L 3 160 L 1 250 H 12 L 22 155 Z" fill="#0D2C54" />
+        </g>
+      </svg>
     </div>
   );
 };
