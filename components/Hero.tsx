@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { ChevronRight, ShieldCheck, Award, Zap } from 'lucide-react';
-import Logo from './Logo';
 
 const Hero: React.FC = () => {
   return (
@@ -74,9 +73,24 @@ const Hero: React.FC = () => {
           </div>
 
           <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end animate-in fade-in zoom-in duration-1000">
-            <div className="relative z-10 w-full max-w-[500px] aspect-square rounded-[5rem] bg-white shadow-[0_60px_120px_-30px_rgba(13,44,84,0.2)] overflow-hidden flex items-center justify-center group animate-float border-[12px] border-slate-50">
-              <div className="absolute inset-0 bg-gradient-to-tr from-gama-navy/5 via-transparent to-gama-orange/5"></div>
-              <Logo className="w-full h-full p-20 transition-all duration-700 group-hover:scale-105" />
+            <div className="relative z-10 w-full max-w-[500px] aspect-square rounded-[5rem] bg-white shadow-[0_60px_120px_-30px_rgba(13,44,84,0.2)] overflow-hidden group animate-float border-[12px] border-slate-50">
+              <img 
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop" 
+                alt="Serviços Gama Premium" 
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gama-navy/90 via-gama-navy/20 to-transparent flex items-end p-6">
+                <div className="flex items-center gap-4 bg-white/10 backdrop-blur-md p-4 rounded-[2rem] border border-white/20 w-full">
+                  <div className="w-12 h-12 bg-gama-orange text-white rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0 font-display font-black text-lg">
+                    SG
+                  </div>
+                  <div>
+                    <p className="text-white text-xs font-black tracking-wider uppercase">Serviços Gama</p>
+                    <p className="text-white/80 text-[10px] font-bold">Vendas Técnicas e Serviços</p>
+                  </div>
+                </div>
+              </div>
             </div>
             
             {/* Badge de Atendimento Premium Profissional */}

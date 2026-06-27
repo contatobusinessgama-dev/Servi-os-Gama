@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
+import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import GeminiAssistant from './components/GeminiAssistant';
 
@@ -42,6 +43,7 @@ const App: React.FC = () => {
 
         <About />
         <Services />
+        <Testimonials />
         <Contact />
       </main>
 
@@ -51,7 +53,7 @@ const App: React.FC = () => {
       {/* Barra Flutuante Mobile */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 p-4 bg-white/95 backdrop-blur-xl border-t border-slate-100 z-40">
         <a 
-          href="https://wa.me/5531983903283" 
+          href="https://wa.me/5531984279865" 
           target="_blank" 
           rel="noopener noreferrer"
           className="w-full orange-gradient text-white font-black py-4 rounded-2xl flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(230,126,34,0.3)]"

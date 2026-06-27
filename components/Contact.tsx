@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, ExternalLink, MessageCircle } from 'lucide-react';
-import Logo from './Logo';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -26,7 +25,7 @@ const Contact: React.FC = () => {
 *Mensagem:* ${formData.message}`;
 
     const encodedText = encodeURIComponent(text);
-    const whatsappUrl = `https://wa.me/5531983903283?text=${encodedText}`;
+    const whatsappUrl = `https://wa.me/5531984279865?text=${encodedText}`;
     
     window.open(whatsappUrl, '_blank');
   };
@@ -49,9 +48,19 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-black text-xs uppercase tracking-[0.2em] text-blue-200 mb-1">WhatsApp Comercial</h4>
-                  <p className="text-2xl font-black">(31) 98390-3283</p>
+                  <p className="text-2xl font-black">(31) 98427-9865</p>
                 </div>
               </div>
+
+              <a href="https://www.instagram.com/servicos.gama/" target="_blank" rel="noopener noreferrer" className="flex items-start gap-6 group hover:translate-x-1 transition-transform">
+                <div className="w-14 h-14 bg-white/10 text-gama-orange rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-gama-orange group-hover:text-white transition-all shadow-xl">
+                  <Instagram size={28} />
+                </div>
+                <div>
+                  <h4 className="font-black text-xs uppercase tracking-[0.2em] text-blue-200 mb-1">Instagram Oficial</h4>
+                  <p className="text-xl font-bold flex items-center gap-2">@servicos.gama <ExternalLink size={16} className="opacity-50" /></p>
+                </div>
+              </a>
 
               <div className="flex items-start gap-6 group">
                 <div className="w-14 h-14 bg-white/10 text-gama-orange rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-gama-orange group-hover:text-white transition-all shadow-xl">
@@ -160,12 +169,20 @@ const Contact: React.FC = () => {
         </div>
 
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-3">
-             <Logo className="w-12 h-12" />
-             <div className="flex flex-col -space-y-1">
-               <span className="font-black text-lg">Serviços <span className="text-gama-orange">Gama</span></span>
-               <span className="text-[8px] font-bold uppercase tracking-[0.3em] text-blue-200">Venda Técnicas e Serviços</span>
-             </div>
+          <div className="flex items-center gap-3.5 select-none group">
+            {/* Elegant high-contrast graphic typographic mark */}
+            <div className="flex items-center justify-center w-11 h-11 rounded-2xl bg-white/10 text-white font-display font-black text-sm tracking-tighter shadow-lg relative overflow-hidden group-hover:scale-105 group-hover:bg-gama-orange transition-all duration-300">
+              SG
+              <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-gama-orange group-hover:bg-white transition-colors"></span>
+            </div>
+            <div className="flex flex-col -space-y-0.5">
+              <span className="font-black text-xl text-white leading-tight">
+                Serviços <span className="text-gama-orange">Gama</span>
+              </span>
+              <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-200/60 leading-none">
+                Vendas Técnicas & Serviços
+              </span>
+            </div>
           </div>
           <p className="text-blue-100/40 text-xs font-bold uppercase tracking-widest">
             © {new Date().getFullYear()} Serviços Gama. Qualidade e Competência.

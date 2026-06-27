@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import Logo from './Logo';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +17,7 @@ const Navbar: React.FC = () => {
   const navItems = [
     { label: 'Quem Somos', href: '#quem-somos' },
     { label: 'Serviços', href: '#servicos' },
+    { label: 'Depoimentos', href: '#depoimentos' },
     { label: 'Diferenciais', href: '#diferenciais' },
     { label: 'Contato', href: '#contato' },
   ];
@@ -26,17 +26,19 @@ const Navbar: React.FC = () => {
     <nav className={`fixed w-full z-[80] transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-lg shadow-2xl py-3' : 'bg-transparent py-7'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <div className="flex items-center gap-5 group cursor-pointer">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gama-orange/10 rounded-full blur-lg scale-0 group-hover:scale-150 transition-transform duration-500"></div>
-              <Logo className="w-16 h-16 flex-shrink-0 relative z-10 transition-all duration-500" />
+          <div className="flex items-center gap-3.5 cursor-pointer group select-none">
+            {/* Elegant high-contrast graphic typographic mark */}
+            <div className="flex items-center justify-center w-11 h-11 rounded-2xl bg-gama-navy text-white font-display font-black text-sm tracking-tighter shadow-lg shadow-gama-navy/10 relative overflow-hidden group-hover:scale-105 group-hover:shadow-gama-orange/20 transition-all duration-300">
+              SG
+              <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-gama-orange animate-pulse"></span>
             </div>
-            
-            <div className="flex flex-col -space-y-1">
-              <span className={`text-2xl font-display font-black tracking-tight transition-colors duration-300 ${isScrolled ? 'text-gama-navy' : 'text-gama-navy'}`}>
-                Serviços <span className="text-gama-orange">Gama</span>
+            <div className="flex flex-col -space-y-0.5">
+              <span className="text-xl md:text-2xl font-display font-black tracking-tight text-gama-navy leading-tight">
+                Serviços <span className="text-gama-orange transition-colors duration-300 group-hover:text-gama-navy">Gama</span>
               </span>
-              <span className="text-[10px] font-bold text-gama-navy opacity-80 uppercase tracking-widest">Venda Técnicas e Serviços</span>
+              <span className="text-[9px] font-black text-gama-navy/60 uppercase tracking-[0.2em] leading-none">
+                Vendas Técnicas & Serviços
+              </span>
             </div>
           </div>
 

@@ -93,10 +93,10 @@ const Services: React.FC = () => {
               </div>
               <h4 className="text-4xl lg:text-5xl font-display font-black mb-8 leading-tight">Transporte com <br /> <span className="text-gama-orange">Discrição & Conforto.</span></h4>
               <p className="text-blue-100/70 text-lg mb-10 leading-relaxed font-medium">
-                Atendimento executivo para viagens corporativas, eventos e transporte especializado de cargas delicadas. Segurança absoluta e pontualidade rigorosa.
+                Atendimento executivo exclusivo para viagens de negócios, traslados de diretoria, eventos corporativos e receptivo VIP. Segurança absoluta e pontualidade de alto nível.
               </p>
               <div className="flex flex-wrap gap-5">
-                <a href="https://wa.me/5531983903283" className="orange-gradient text-white px-10 py-5 rounded-2xl font-black hover:shadow-2xl hover:shadow-orange-500/20 transition-all transform hover:-translate-y-1">
+                <a href="https://wa.me/5531984279865" className="orange-gradient text-white px-10 py-5 rounded-2xl font-black hover:shadow-2xl hover:shadow-orange-500/20 transition-all transform hover:-translate-y-1">
                   Agendar Agora
                 </a>
               </div>
@@ -104,22 +104,22 @@ const Services: React.FC = () => {
 
             <div className="grid gap-6">
                <div className="bg-white/5 backdrop-blur-md p-8 rounded-[2.5rem] border border-white/10 flex items-center gap-6 group hover:bg-white/10 transition-all">
-                  <div className="w-16 h-16 bg-gama-orange rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-gama-orange/20">
-                    <Truck size={32} />
-                  </div>
-                  <div>
-                    <h5 className="text-xl font-black mb-1">Cargas & Normal</h5>
-                    <p className="text-blue-100/60 text-sm font-medium">Eficiência e cuidado para sua logística diária.</p>
-                  </div>
-               </div>
-
-               <div className="bg-white/5 backdrop-blur-md p-8 rounded-[2.5rem] border border-white/10 flex items-center gap-6 group hover:bg-white/10 transition-all">
                   <div className="w-16 h-16 bg-gama-blue rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-gama-blue/20">
                     <Car size={32} />
                   </div>
                   <div>
                     <h5 className="text-xl font-black mb-1">Executivo VIP</h5>
-                    <p className="text-blue-100/60 text-sm font-medium">Máximo conforto para seus compromissos mais importantes.</p>
+                    <p className="text-blue-100/60 text-sm font-medium">Veículos de alto padrão com absoluto conforto, privacidade e pontualidade.</p>
+                  </div>
+               </div>
+
+               <div className="bg-white/5 backdrop-blur-md p-8 rounded-[2.5rem] border border-white/10 flex items-center gap-6 group hover:bg-white/10 transition-all">
+                  <div className="w-16 h-16 bg-gama-orange rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-gama-orange/20">
+                    <Briefcase size={32} />
+                  </div>
+                  <div>
+                    <h5 className="text-xl font-black mb-1">Viagens & Corporativo</h5>
+                    <p className="text-blue-100/60 text-sm font-medium">Atendimento a traslados de diretoria, reuniões de negócios e eventos.</p>
                   </div>
                </div>
             </div>
